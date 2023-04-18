@@ -12,7 +12,7 @@ const { pageTitle } = Astro.props;
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Roboto+Mono:wght@400;500;600&display=swap"
       rel="stylesheet"
     />
     <title>{pageTitle}</title>
@@ -25,19 +25,21 @@ const { pageTitle } = Astro.props;
 <style is:global>
   @import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500;600&display=swap");
   html {
-    background-color: #f1f5f9;
     font-family: "Roboto Mono", monospace;
   }
 
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
   body {
     margin: 0 auto;
     width: 100%;
     max-width: 80ch;
     padding: 1rem;
     line-height: 1.5;
-  }
-
-  * {
-    box-sizing: border-box;
+    background-color: #1d1d1f;
+    color: aliceblue;
   }
 </style>

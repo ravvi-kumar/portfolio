@@ -1,8 +1,33 @@
 ---
 ---
 
-<div class="text-lg font-medium">
-  <a href="/">Home</a>
-  <a href="/about">About</a>
-  <a href="/blog">Blog</a>
+<div class="flex justify-between">
+  <a id="logoContainer" href="/">
+    <div id="logo">Ravi</div>
+    <div id="lvl">lvl22</div>
+  </a>
+  <div class="text-lg font-medium">
+    <a href="/blog">Blog</a>
+    <a href="/about">About</a>
+  </div>
 </div>
+<style>
+  #logoContainer {
+    position: relative;
+  }
+  #logo {
+    font-size: 32px;
+    font-weight: 800;
+    font-family: "Montserrat", sans-serif;
+    position: relative;
+  }
+  #lvl {
+    position: absolute;
+    right: -28px;
+    bottom: -2px;
+    font-size: 18px;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 800;
+    color: #a374ff;
+  }
+</style>
