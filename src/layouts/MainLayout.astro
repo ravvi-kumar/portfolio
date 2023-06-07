@@ -12,7 +12,7 @@ const { pageTitle } = Astro.props;
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Roboto+Mono:wght@400;500;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Roboto+Mono:wght@400;500;600&family=Zeyada&display=swap"
       rel="stylesheet"
     />
     <title>{pageTitle}</title>
@@ -28,18 +28,37 @@ const { pageTitle } = Astro.props;
     font-family: "Roboto Mono", monospace;
   }
 
-  * {
+  *,
+  *::before,
+  *::after {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
   }
   body {
     margin: 0 auto;
+    height: 100%;
     width: 100%;
     max-width: 80ch;
     padding: 1rem;
     line-height: 1.5;
     background-color: #1d1d1f;
     color: aliceblue;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+  img,
+  picture,
+  video,
+  canvas,
+  svg {
+    display: block;
+    max-width: 100%;
+  }
+  input,
+  button,
+  textarea,
+  select {
+    font: inherit;
   }
 </style>
