@@ -184,7 +184,7 @@ function Counter() {
 }
 ```
 
-Remember, make sure to change your function to async function or you can chain then call also .
+Remember, setState return a promise of updated state, make sure you change your function to async function and put await in front of it or you can chain then call also .
 
 ## Conclusion
 
