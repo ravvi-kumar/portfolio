@@ -1,19 +1,25 @@
 ---
 const articles = [
   {
-    title: "title",
+    title: "useAsync hook",
+    desc: " a simple hook to synchronize state updates without useEffect",
     createdAt: new Date().toDateString(),
     img: "https://picsum.photos/300/300",
+    target: "../blogs/blog-1",
   },
   {
-    title: "title",
+    title: "Lorem ipsum dolor sit amet elit. Consequatur.",
+    desc: " Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aut qui,dicta velit eaque maiores expedita tempore earum eos tempora quasi",
     createdAt: new Date().toDateString(),
     img: "https://picsum.photos/300/300",
+    target: "#",
   },
   {
-    title: "title",
+    title: "Lorem ipsum dolor sit amet elit. Consequatur.",
+    desc: " Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aut qui,dicta velit eaque maiores expedita tempore earum eos tempora quasi",
     createdAt: new Date().toDateString(),
     img: "https://picsum.photos/300/300",
+    target: "#",
   },
 ];
 ---
@@ -23,7 +29,10 @@ const articles = [
   <div class="flex justify-between px-8 flex-wrap">
     {
       articles.map((article) => (
-        <div class="bg-white rounded-xl w-72 my-10">
+        <a
+          href={article?.target}
+          class="bg-white rounded-xl w-72 my-10 cursor-pointer"
+        >
           <div class="h-40 w-full">
             <img
               src={article?.img}
@@ -35,7 +44,7 @@ const articles = [
               class="text-black capitalize font-extrabold text-sm md:text-base"
               style="font-family: Montserrat, sans-serif;"
             >
-              Lorem ipsum dolor sit amet elit. Consequatur.
+              {article.title}
             </h3>
             <small class="text-gray-900 text-xs font-bold">
               {article.createdAt}
@@ -44,11 +53,10 @@ const articles = [
               class="text-gray-700 text-xs"
               style="font-family: Montserrat, sans-serif;"
             >
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aut qui,
-              dicta velit eaque maiores expedita tempore earum eos tempora quasi
+              {article.desc}
             </p>
           </div>
-        </div>
+        </a>
       ))
     }
   </div>
