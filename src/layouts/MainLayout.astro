@@ -19,7 +19,9 @@ const { pageTitle } = Astro.props;
   </head>
   <body>
     <div class="container">
-      <Navigation />
+      <nav>
+        <Navigation />
+      </nav>
       <slot />
     </div>
   </body>
@@ -43,10 +45,15 @@ const { pageTitle } = Astro.props;
     width: 100%;
     /* max-width: 80ch; */
     line-height: 1.5;
-    background-color: #1d1d1f;
+    background-color: rgb(29, 29, 31);
     color: aliceblue;
     line-height: 1.5;
     -webkit-font-smoothing: antialiased;
+  }
+  nav {
+    position: sticky;
+    top: 0;
+    background-color: rgb(29, 29, 31, 0.8);
   }
   .container {
     margin: 0 auto;
