@@ -18,8 +18,10 @@ const { pageTitle } = Astro.props;
     <title>{pageTitle}</title>
   </head>
   <body>
-    <Navigation />
-    <slot />
+    <div class="container">
+      <Navigation />
+      <slot />
+    </div>
   </body>
 </html>
 <style is:global>
@@ -36,16 +38,20 @@ const { pageTitle } = Astro.props;
     box-sizing: border-box;
   }
   body {
-    margin: 0 auto;
+    /* margin: 0 auto; */
     height: 100%;
     width: 100%;
-    max-width: 80ch;
-    padding: 1rem;
+    /* max-width: 80ch; */
     line-height: 1.5;
     background-color: #1d1d1f;
     color: aliceblue;
     line-height: 1.5;
     -webkit-font-smoothing: antialiased;
+  }
+  .container {
+    margin: 0 auto;
+    max-width: 100ch;
+    padding: 1rem;
   }
   img,
   picture,
