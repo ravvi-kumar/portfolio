@@ -4,6 +4,9 @@ import Header from "../components/Header.astro";
 import Section1 from "../components/Section1.astro";
 import Skills from "../components/Skills.astro";
 import MainLayout from "../layouts/MainLayout.astro";
+import { injectSpeedInsights } from "@vercel/speed-insights";
+
+injectSpeedInsights({});
 
 const pageTitle = "Home Page";
 ---
