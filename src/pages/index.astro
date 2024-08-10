@@ -1,0 +1,20 @@
+---
+import Links from "../components/Links.astro";
+import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
+import MainLayout from "../layouts/MainLayout.astro";
+
+const randomNumber = Math.floor(Math.random() * 5) + 1;
+---
+
+<MainLayout title={SITE_TITLE} description={SITE_DESCRIPTION}>
+  <h1
+    class="font-heavy text-5xl md:text-7xl font-bold dark:text-white leading-[3rem] md:leading-[5rem]"
+  >
+    Hey! 👋 I’m Ravvi, founder and CEO of <span
+      class="underline bg-img"
+      style={`background-image: url("/bg-img-${randomNumber}.jpg");`}
+      >Neighbourhood Nexus</span
+    >. We make apps.
+  </h1>
+  <Links />
+</MainLayout>

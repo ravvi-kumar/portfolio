@@ -1,0 +1,19 @@
+@font-face {
+  font-family: "Heavy";
+  src: url("/fonts/heavy-font.woff") format("woff");
+  font-display: swap;
+  font-weight: 900;
+}
+body {
+  font-family: "Heavy";
+  margin: 0;
+  padding: 0;
+}
+.bg-img {
+  background-image: url("/bg-img-1.jpg");
+  background-size: cover;
+  background-position: bottom;
+  background-clip: text;
+  color: transparent;
+  -webkit-background-clip: text;
+}
