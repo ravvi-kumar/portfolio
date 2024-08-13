@@ -1,16 +1,302 @@
 ---
-title: 'Second post'
-description: 'Lorem ipsum dolor sit amet'
-pubDate: 'Jul 15 2022'
-heroImage: '/blog-placeholder-4.jpg'
+title: "zustand blog"
+description: "Lorem ipsum dolor sit amet"
+pubDate: "Jul 15 2022"
+heroImage: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb"
 ---
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Vitae ultricies leo integer malesuada nunc vel risus commodo viverra. Adipiscing enim eu turpis egestas pretium. Euismod elementum nisi quis eleifend quam adipiscing. In hac habitasse platea dictumst vestibulum. Sagittis purus sit amet volutpat. Netus et malesuada fames ac turpis egestas. Eget magna fermentum iaculis eu non diam phasellus vestibulum lorem. Varius sit amet mattis vulputate enim. Habitasse platea dictumst quisque sagittis. Integer quis auctor elit sed vulputate mi. Dictumst quisque sagittis purus sit amet.
+<!-- # Zustand Blog -->
 
-Morbi tristique senectus et netus. Id semper risus in hendrerit gravida rutrum quisque non tellus. Habitasse platea dictumst quisque sagittis purus sit amet. Tellus molestie nunc non blandit massa. Cursus vitae congue mauris rhoncus. Accumsan tortor posuere ac ut. Fringilla urna porttitor rhoncus dolor. Elit ullamcorper dignissim cras tincidunt lobortis. In cursus turpis massa tincidunt dui ut ornare lectus. Integer feugiat scelerisque varius morbi enim nunc. Bibendum neque egestas congue quisque egestas diam. Cras ornare arcu dui vivamus arcu felis bibendum. Dignissim suspendisse in est ante in nibh mauris. Sed tempus urna et pharetra pharetra massa massa ultricies mi.
+![https://images.unsplash.com/photo-1550745165-9bc0b252726f?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb](https://images.unsplash.com/photo-1550745165-9bc0b252726f?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb)
 
-Mollis nunc sed id semper risus in. Convallis a cras semper auctor neque. Diam sit amet nisl suscipit. Lacus viverra vitae congue eu consequat ac felis donec. Egestas integer eget aliquet nibh praesent tristique magna sit amet. Eget magna fermentum iaculis eu non diam. In vitae turpis massa sed elementum. Tristique et egestas quis ipsum suspendisse ultrices. Eget lorem dolor sed viverra ipsum. Vel turpis nunc eget lorem dolor sed viverra. Posuere ac ut consequat semper viverra nam. Laoreet suspendisse interdum consectetur libero id faucibus. Diam phasellus vestibulum lorem sed risus ultricies tristique. Rhoncus dolor purus non enim praesent elementum facilisis. Ultrices tincidunt arcu non sodales neque. Tempus egestas sed sed risus pretium quam vulputate. Viverra suspendisse potenti nullam ac tortor vitae purus faucibus ornare. Fringilla urna porttitor rhoncus dolor purus non. Amet dictum sit amet justo donec enim.
+# Zustand: A Simple and Flexible State Management Library for React
 
-Mattis ullamcorper velit sed ullamcorper morbi tincidunt. Tortor posuere ac ut consequat semper viverra. Tellus mauris a diam maecenas sed enim ut sem viverra. Venenatis urna cursus eget nunc scelerisque viverra mauris in. Arcu ac tortor dignissim convallis aenean et tortor at. Curabitur gravida arcu ac tortor dignissim convallis aenean et tortor. Egestas tellus rutrum tellus pellentesque eu. Fusce ut placerat orci nulla pellentesque dignissim enim sit amet. Ut enim blandit volutpat maecenas volutpat blandit aliquam etiam. Id donec ultrices tincidunt arcu. Id cursus metus aliquam eleifend mi.
+## Introduction
 
-Tempus quam pellentesque nec nam aliquam sem. Risus at ultrices mi tempus imperdiet. Id porta nibh venenatis cras sed felis eget velit. Ipsum a arcu cursus vitae. Facilisis magna etiam tempor orci eu lobortis elementum. Tincidunt dui ut ornare lectus sit. Quisque non tellus orci ac. Blandit libero volutpat sed cras. Nec tincidunt praesent semper feugiat nibh sed pulvinar proin gravida. Egestas integer eget aliquet nibh praesent tristique magna.
+When working with large React applications, state management can quickly become complex and challenging to maintain. Zustand is a state management library that aims to simplify the process by providing a straightforward and flexible solution for managing state in React applications. In this article, we will explore what Zustand is, how it works, its benefits for React developers, and a simple example of how it can be used.
+
+## What is Zustand?
+
+Zustand is a lightweight state management library for React that uses a simple and functional approach to manage state in applications. Zustand allows developers to create stores, which are objects that hold state and provide methods for updating that state. Stores can be easily shared between components, allowing for a centralized and predictable way to handle state throughout an application.
+
+## How Does Zustand Work?
+
+Zustand uses a simple API to manage state in React applications. To create a store, developers use the `createStore` function provided by Zustand. This function takes an initial state object and returns an object that contains the current state and methods for updating that state.
+
+```jsx
+import create from "zustand";
+
+const useStore = create((set) => ({
+  count: 0,
+  increment: () => set((state) => ({ count: state.count + 1 })),
+  decrement: () => set((state) => ({ count: state.count - 1 })),
+}));
+```
+
+In the example above, we are creating a store that holds a count value and two methods for updating that count value. The `set` function is provided by Zustand and is used to update the state of the store.
+
+Once a store is created, it can be used in components using the `useStore` hook provided by Zustand.
+
+```jsx
+import { useStore } from "./store";
+
+function Counter() {
+  const count = useStore((state) => state.count);
+  const increment = useStore((state) => state.increment);
+  const decrement = useStore((state) => state.decrement);
+
+  return (
+    <div>
+      <h1>{count}</h1>
+      <button onClick={increment}>+</button>
+      <button onClick={decrement}>-</button>
+    </div>
+  );
+}
+```
+
+In the example above, we are using the `useStore` hook to access the count value and methods for updating that value in our `Counter` component.
+
+## Benefits of Using Zustand
+
+Zustand provides several benefits for React developers. Firstly, it is a lightweight library that has a small API surface area, making it easy to learn and use. Additionally, because stores can be easily shared between components, Zustand provides a centralized and predictable way to handle state in React applications. Finally, Zustand provides a simple and functional approach to managing state, allowing developers to focus on building their applications rather than worrying about complex state management.
+
+## Getting Started with Zustand
+
+To get started with Zustand, you can install it via npm or yarn:
+
+```
+npm install zustand
+
+```
+
+or
+
+```
+yarn add zustand
+
+```
+
+Zustand works well with any React application, regardless of whether you're using class components or functional components. To create a store, you'll need to use the `createStore` function provided by Zustand, passing in an initial state object and a function that returns an object containing methods for updating state.
+
+Once you've created your store, you can use the `useStore` hook to access state and methods for updating that state in your components. It's worth noting that you can create as many stores as you need in your application, allowing you to manage state in a centralized and predictable way.
+
+## Example 1: Todo List
+
+Let's take a look at a simple example of how Zustand can be used to manage state in a todo list application.
+
+```tsx
+import { create } from "zustand";
+
+interface ITodoStore {
+  todos: String[];
+  addTodo: (text: string) => void;
+  removeTodo: (index: number) => void;
+}
+
+export const useTodoStore = create<ITodoStore>()((set) => ({
+  todos: [],
+  addTodo: (text) => set((state) => ({ todos: [...state.todos, text] })),
+  removeTodo: (index) =>
+    set((state) => ({ todos: state.todos.filter((_, i) => i !== index) })),
+}));
+```
+
+```tsx
+import create from "zustand";
+import { useTodoStore } from "../../store/example1";
+
+export default function TodoList() {
+  const todos = useTodoStore((state) => state.todos);
+  const addTodo = useTodoStore((state) => state.addTodo);
+  const removeTodo = useTodoStore((state) => state.removeTodo);
+
+  const handleSubmit = (e: any) => {
+    e.preventDefault();
+    const text = e.target.elements.todo.value;
+    addTodo(text);
+    e.target.reset();
+  };
+
+  return (
+    <div>
+      <form onSubmit={handleSubmit}>
+        <input type="text" name="todo" />
+        <button type="submit">Add Todo</button>
+      </form>
+      <ul>
+        {todos.map((todo, index) => (
+          <li key={index}>
+            {todo} <button onClick={() => removeTodo(index)}>-</button>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+```
+
+In the example above, we are creating a store that holds an array of todo items and two methods for updating that array: `addTodo` and `removeTodo`. We're then using the `useTodoStore` hook to access the state and methods in our `TodoList` component.
+
+When the user submits the form in our `TodoList` component, we're using the `addTodo` method to add the new todo item to the store. When the user clicks the "x" button next to a todo item, we're using the `removeTodo` method to remove that item from the store.
+
+## Example 2: Shopping Cart
+
+Let's take a look at a more complex example of how Zustand can be used to manage state in a shopping cart application.
+
+```tsx
+import { create } from "zustand";
+
+type ItemType = {
+  id: string;
+  name: string;
+  quantity: number;
+};
+
+interface ICartStore {
+  items: ItemType[];
+  addItem: (item: ItemType) => void;
+  removeItem: (id: string) => void;
+  updateQuantity: (id: string, quantity: number) => void;
+}
+
+export const useCartStore = create<ICartStore>()((set) => ({
+  items: [],
+  addItem: (item) => set((state) => ({ items: [...state.items, item] })),
+  removeItem: (id) =>
+    set((state) => ({ items: state.items.filter((item) => item.id !== id) })),
+  updateQuantity: (id, quantity) =>
+    set((state) => ({
+      items: state.items.map((item) =>
+        item.id === id ? { ...item, quantity } : item
+      ),
+    })),
+}));
+```
+
+```tsx
+import { useCartStore } from "../../store/example.2";
+
+export default function Cart() {
+  const items = useCartStore((state) => state.items);
+  const addItem = useCartStore((state) => state.addItem);
+  const removeItem = useCartStore((state) => state.removeItem);
+  const updateQuantity = useCartStore((state) => state.updateQuantity);
+
+  const handleAddItem = (e: any) => {
+    e.preventDefault();
+    const name = e.target.elements.itemName.value;
+    addItem({
+      ...{ id: (Math.random() + 1).toString(36).substring(2), name },
+      quantity: 1,
+    });
+    e.target.reset();
+  };
+
+  const handleUpdateItem = (id: string) => {
+    const existingItem = items.find((i) => i.id === id);
+
+    if (existingItem) {
+      updateQuantity(existingItem.id, existingItem.quantity + 1);
+    }
+  };
+
+  const handleRemoveItem = (id: string) => {
+    const existingItem = items.find((i) => i.id === id);
+    if (existingItem) {
+      if (existingItem.quantity === 1) {
+        removeItem(id);
+      } else {
+        updateQuantity(id, existingItem.quantity - 1);
+      }
+    }
+  };
+
+  return (
+    <div>
+      <ul>
+        {items.map((item) => (
+          <li key={item.id}>
+            {item.name} x {item.quantity}{" "}
+            <button onClick={() => handleUpdateItem(item.id)}>+</button>
+            <button onClick={() => handleRemoveItem(item.id)}>-</button>
+          </li>
+        ))}
+      </ul>
+      <form onSubmit={handleAddItem}>
+        <input type="text" name="itemName" />
+        <button type="submit">Add Item</button>
+      </form>
+    </div>
+  );
+}
+```
+
+In the example above, we are creating a store that holds an array of items in a shopping cart and three methods for updating that array: `addItem`, `removeItem`, and `updateQuantity`. We're then using the `useCartStore` hook to access the state and methods in our `Cart` component.
+
+When the user adds an item to the cart, we're using the `addItem` method to add the item to the store. If the item already exists in the cart, we're using the `updateQuantity` method to update the quantity of that item. When the user removes an item from the cart, we're using the `removeItem` method to remove the item from the store. If the quantity of an item in the cart is greater than 1, we're using the `updateQuantity` method to decrement the quantity.
+
+## Conclusion
+
+Zustand is a powerful and flexible state management library for React that makes it easy to manage state in large applications. Its lightweight and functional programming approach make it a great choice for developers looking for an easy-to-use and predictable state management solution. I hope this article has given you a good introduction to Zustand and its benefits. Give it a try in your next React project!
+
+<style>
+  @import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500;600&display=swap");
+  html {
+    font-family: "Roboto Mono", monospace;
+  }
+
+  *,
+  *::before,
+  *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  body {
+    /* margin: 0 auto; */
+    height: 100%;
+    width: 100%;
+    /* max-width: 80ch; */
+    line-height: 1.5;
+    background-color: rgb(29, 29, 31);
+    color: aliceblue;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+  img,
+  picture,
+  video,
+  canvas,
+  svg {
+    display: block;
+    max-width: 100%;
+  }
+  input,
+  button,
+  textarea,
+  select {
+    font: inherit;
+  }
+  h1 {
+    font-size: 30px;
+    font-weight: 1000;
+    margin: 10px auto;
+  }
+  h2 {
+    font-size: 22px;
+    font-weight: 800;
+    margin: 6px auto;
+  }
+  h3 {
+    font-size: 18px;
+    font-weight: 600;
+  }
+  p {
+    margin: 10px 0px;
+  }
+  pre {
+    /* margin: 12px; */
+    padding: 14px;
+  }
+</style>

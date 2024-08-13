@@ -1,7 +1,8 @@
 ---
 title: useAsync hook
 description: "Lorem ipsum dolor sit amet"
-pubDate: "Jul 08 2022"
+pubDate: "Jun 09 2023"
+heroImage: "https://images.unsplash.com/photo-1496664444929-8c75efb9546f?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=3600"
 ---
 
 <!-- # useAyncState hook -->
@@ -189,3 +190,64 @@ Remember, setState return a promise of updated state, make sure you change your 
 In conclusion, the `useState` hook's setter function can batch state updates, meaning that multiple calls to the same setter function within a single render cycle may only result in one actual update to the state. This batching behavior can be useful for optimizing performance, but it's important to understand how it works to avoid confusion and ensure that our components behave as expected. By minimizing the number of state updates, we can build fast and efficient React applications that provide a great user experience.
 
 So, next time you're working with `useState` in React, remember to keep in mind the batching behavior of the setter function and use it to your advantage to build performant and efficient apps.
+
+<style>
+  @import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500;600&display=swap");
+  html {
+    font-family: "Roboto Mono", monospace;
+  }
+
+  *,
+  *::before,
+  *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  body {
+    /* margin: 0 auto; */
+    height: 100%;
+    width: 100%;
+    /* max-width: 80ch; */
+    line-height: 1.5;
+    background-color: rgb(29, 29, 31);
+    color: aliceblue;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+  img,
+  picture,
+  video,
+  canvas,
+  svg {
+    display: block;
+    max-width: 100%;
+  }
+  input,
+  button,
+  textarea,
+  select {
+    font: inherit;
+  }
+  h1 {
+    font-size: 30px;
+    font-weight: 1000;
+    margin: 10px auto;
+  }
+  h2 {
+    font-size: 22px;
+    font-weight: 800;
+    margin: 6px auto;
+  }
+  h3 {
+    font-size: 18px;
+    font-weight: 600;
+  }
+  p {
+    margin: 10px 0px;
+  }
+  pre {
+    /* margin: 12px; */
+    padding: 14px;
+  }
+</style>

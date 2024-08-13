@@ -1,5 +1,8 @@
 ---
 import Arrow from "./Arrow.astro";
+import Github from "./Github.astro";
+import Twitter from "./Twitter.astro";
+import Linkedin from "./Linkedin.astro";
 
 const pages = [
   {
@@ -23,20 +26,22 @@ const socials = [
   },
   {
     title: "LinkedIn",
-    href: "https://www.linkedin.com/in/ravvi/",
+    href: "https://www.linkedin.com/in/ravi-kumar-chopra-99844727a",
     icon: "linkedin",
   },
   {
     title: "GitHub",
-    href: "https://github.com/ravvi",
+    href: "https://github.com/ravvi-kumar",
     icon: "github",
   },
 ];
 ---
 
-<div class="flex justify-between py-8 dark:text-white text-white">
+<div
+  class="flex justify-between py-8 dark:text-white text-white flex-col md:flex-row"
+>
   <div
-    class="flex flex-col items-start gap-2 justify-center text-black dark:text-white text-md md:text-lg"
+    class="flex flex-col items-start gap-2 justify-center text-black dark:text-white text-md md:text-lg pb-6"
   >
     {
       pages.map((page) => (
@@ -49,5 +54,25 @@ const socials = [
       ))
     }
   </div>
-  <div class="flex"></div>
+  <div
+    class="flex flex-col items-start gap-2 justify-center text-black dark:text-white font-sans font-semibold text-sm md:text-md"
+  >
+    {
+      socials.map((social) => (
+        <a
+          href={social.href}
+          class="flex items-center justify-center hover:underline"
+        >
+          {social.icon === "twitter" ? (
+            <Twitter height={24} width={24} />
+          ) : social.icon === "github" ? (
+            <Github height={24} width={24} />
+          ) : social.icon === "linkedin" ? (
+            <Linkedin height={24} width={24} />
+          ) : null}
+          <span class="">{social.title}</span>
+        </a>
+      ))
+    }
+  </div>
 </div>
