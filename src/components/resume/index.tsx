@@ -1,7 +1,7 @@
 export default function Resume() {
   return (
-    <div className="bg-white p-8">
-      <div className="shadow-lg border-2 border-gray-200 rounded-lg p-10">
+    <div className="bg-white dark:bg-black p-8">
+      <div className="shadow-lg border-2 border-gray-200 dark:border-gray-700 rounded-lg p-10 dark:text-white">
         <div className="flex flex-col gap-4 lg:flex-row flex-wrap">
           <div className="md:mr-4 flex-1">
             <Heading />
@@ -87,7 +87,9 @@ function Info() {
       </div>
       <div>
         <h3 className="font-bold">Site</h3>
-        <p>https://ravi.vercel.app</p>
+        <a href="https://ravvi.vercel.app" target="_blank">
+          https://ravvi.vercel.app
+        </a>
       </div>
     </div>
   );
@@ -98,11 +100,11 @@ function Education() {
     <div>
       <h2 className="text-2xl font-bold mb-2">EDUCATION</h2>
       <h3 className="text-xl font-semibold">
-        Garden valley international School, Machhiwara—10th
+        {`Garden valley international School, Machhiwara - 10th `}
       </h3>
       <p className="mb-4">April 2015 - April 2016</p>
       <h3 className="text-xl font-semibold">
-        Garden valley international School, Machhiwara—12th
+        {`Garden valley international School, Machhiwara - 12th `}
       </h3>
       <p className="mb-4">April 2017 - April 2018</p>
     </div>
@@ -113,7 +115,7 @@ function Training() {
     <div>
       <h2 className="text-2xl font-bold mb-2">Training</h2>
       <p className="mb-4">3 Months of web Development training</p>
-      <p className="font-semibold mb-4">— LN Web Works—Ludhiana</p>
+      <p className="font-semibold mb-4"> ~ LN Web Works ~ Ludhiana</p>
       <p>Feb 2022 - May 2022</p>
     </div>
   );
@@ -123,7 +125,7 @@ function Experience() {
     <div>
       <h2 className="text-2xl font-bold mb-2">EXPERIENCE</h2>
       <h3 className="text-xl font-semibold">
-        Mps Infotech, Mohali—React js Intern
+        {`Mps Infotech, Mohali ~ React js Intern `}
       </h3>
       <ul className="list-disc ml-5 mb-4">
         <li>
@@ -138,7 +140,7 @@ function Experience() {
       </ul>
       <p className="mb-4">June 2022 - Aug 2022</p>
       <h3 className="text-xl font-semibold">
-        Mps Infotech, Mohali—Software Developer
+        Mps Infotech, Mohali ~ Software Developer
       </h3>
       <ul className="list-disc ml-5 mb-4">
         <li>
@@ -158,7 +160,7 @@ function Experience() {
           api and OpenAi, where users can chat with their google slides.
         </li>
       </ul>
-      <p className="mb-4">Aug 2022 - June 2023</p>
+      <p className="mb-4">Aug 2022 - Present</p>
     </div>
   );
 }
@@ -168,26 +170,26 @@ function SideProjects() {
     <div>
       <h2 className="text-2xl font-bold mb-2">SIDE PROJECTS</h2>
       <h3 className="font-semibold">JavaScript</h3>
-      <p className="mb-4">—text editor, css-boxShadow generator.</p>
+      <p className="mb-4"> ~ text editor, css-boxShadow generator.</p>
       <h3 className="font-semibold">React js</h3>
       <p className="mb-4">
-        —video conference App, Slot machine, window Xp userInterface,
+        ~ video conference App, Slot machine, window Xp userInterface,
         pdf-editor.
       </p>
       <h3 className="font-semibold">Next js</h3>
       <p className="mb-4">
-        —Trello clone , Agency website with (App Directory).
+        ~ Trello clone , Agency website with (App Directory).
       </p>
       <h3 className="font-semibold">Zustand</h3>
       <p className="mb-4">
-        —Created a shared zustand store b/w react and svelte in Astro.
+        ~ Created a shared zustand store b/w react and svelte in Astro.
       </p>
       <h3 className="font-semibold">Stripe</h3>
       <p className="mb-4">
-        —Created a dummy stripe product using Nestjs as Backend.
+        ~ Created a dummy stripe product using Nestjs as Backend.
       </p>
       <h3 className="font-semibold">Svelte</h3>
-      <p className="mb-4">—Chat application using webSockets in Node js.</p>
+      <p className="mb-4"> ~ Chat application using webSockets in Node js.</p>
     </div>
   );
 }
