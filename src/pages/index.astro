@@ -1,19 +1,21 @@
 ---
-import Articles from "../components/Articles.astro";
-import Header from "../components/Header.astro";
-import Section1 from "../components/Section1.astro";
-import Skills from "../components/Skills.astro";
+import Links from "../components/Links.astro";
+import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
 import MainLayout from "../layouts/MainLayout.astro";
-import { injectSpeedInsights } from "@vercel/speed-insights";
 
-injectSpeedInsights({});
-
-const pageTitle = "Home Page";
+const randomNumber = Math.floor(Math.random() * 5) + 1;
+export const prerender = false;
 ---
 
-<MainLayout pageTitle={pageTitle}>
-  <Header />
-  <Section1 />
-  <Articles />
-  <!-- <Skills /> -->
+<MainLayout title={SITE_TITLE} description={SITE_DESCRIPTION}>
+  <h1
+    class="font-heavy text-5xl md:text-7xl font-bold dark:text-white leading-[3rem] md:leading-[5rem]"
+  >
+    Hey! 👋 I’m Ravvi, founder and CEO of <span
+      class="underline bg-img"
+      style={`background-image: url("/bg-img-${randomNumber}.jpg");`}
+      >Neighbourhood Nexus</span
+    >. We make apps.
+  </h1>
+  <Links />
 </MainLayout>

@@ -1,0 +1,35 @@
+---
+import { SITE_TITLE, SITE_DESCRIPTION } from "../../consts";
+import { getCollection } from "astro:content";
+import FormattedDate from "../../components/FormattedDate.astro";
+import MainLayout from "../../layouts/MainLayout.astro";
+
+const posts = (await getCollection("blog")).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+
+export const prerender = true;
+---
+
+<MainLayout title={SITE_TITLE} description={SITE_DESCRIPTION}>
+  <h2 class="text-2xl text-black dark:text-white pb-12">Blogs</h2>
+  <section class="font-sans">
+    <ul class="text-inherit text-black dark:text-white">
+      {
+        posts.map((post) => (
+          <li>
+            <a href={`/blog/${post.slug}/`}>
+              <img width={720} height={360} src={post.data.heroImage} alt="" />
+              <h4 class="text-lg font-semibold dark:text-white">
+                {post.data.title}
+              </h4>
+              <p class="text-sm font-light text-black dark:text-white">
+                <FormattedDate date={post.data.pubDate} />
+              </p>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+</MainLayout>

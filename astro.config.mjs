@@ -1,13 +1,15 @@
-import { defineConfig } from 'astro/config';
-// https://astro.build/config
+import { defineConfig } from "astro/config";
+import mdx from "@astrojs/mdx";
+import sitemap from "@astrojs/sitemap";
 import tailwind from "@astrojs/tailwind";
+import vercel from "@astrojs/vercel/serverless";
+
+import react from "@astrojs/react";
 
 // https://astro.build/config
 export default defineConfig({
-  markdown: {
-    // drafts: true,
-  },
-  integrations: [
-    , tailwind({
-    })]
+  site: "https://example.com",
+  integrations: [mdx(), sitemap(), tailwind(), react()],
+  output: "server",
+  adapter: vercel()
 });

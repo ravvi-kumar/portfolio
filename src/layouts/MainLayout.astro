@@ -1,98 +1,16 @@
 ---
-import Navigation from "../components/Navigation.astro";
-const { pageTitle } = Astro.props;
+import BaseHead from "../components/BaseHead.astro";
+const { SITE_TITLE, SITE_DESCRIPTION } = Astro.props;
 ---
 
+<!doctype html>
 <html lang="en">
   <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Roboto+Mono:wght@400;500;600&family=Zeyada&display=swap"
-      rel="stylesheet"
-    />
-    <title>{pageTitle}</title>
+    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
   </head>
-  <body>
-    <div class="container">
-      <nav>
-        <Navigation />
-      </nav>
+  <body class="bg-white dark:bg-black">
+    <main class="max-w-screen-lg mx-auto px-4 md:px-8 py-12 md:py-24">
       <slot />
-    </div>
+    </main>
   </body>
 </html>
-<style is:global>
-  @import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500;600&display=swap");
-  html {
-    font-family: "Roboto Mono", monospace;
-  }
-
-  *,
-  *::before,
-  *::after {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  body {
-    /* margin: 0 auto; */
-    height: 100%;
-    width: 100%;
-    /* max-width: 80ch; */
-    line-height: 1.5;
-    background-color: rgb(29, 29, 31);
-    color: aliceblue;
-    line-height: 1.5;
-    -webkit-font-smoothing: antialiased;
-  }
-  nav {
-    position: sticky;
-    top: 0;
-    background-color: rgb(29, 29, 31, 0.8);
-  }
-  .container {
-    margin: 0 auto;
-    max-width: 100ch;
-    padding: 1rem;
-  }
-  img,
-  picture,
-  video,
-  canvas,
-  svg {
-    display: block;
-    max-width: 100%;
-  }
-  input,
-  button,
-  textarea,
-  select {
-    font: inherit;
-  }
-  h1 {
-    font-size: 30px;
-    font-weight: 1000;
-    margin: 10px auto;
-  }
-  h2 {
-    font-size: 22px;
-    font-weight: 800;
-    margin: 6px auto;
-  }
-  h3 {
-    font-size: 18px;
-    font-weight: 600;
-  }
-  p {
-    margin: 10px 0px;
-  }
-  pre {
-    /* margin: 12px; */
-    padding: 14px;
-  }
-</style>

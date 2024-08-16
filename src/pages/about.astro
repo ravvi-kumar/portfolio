@@ -1,57 +1,14 @@
 ---
+import Arrow from "../components/Arrow.astro";
 import MainLayout from "../layouts/MainLayout.astro";
-const pageTitle = "About Me";
-
-const identity = {
-  firstName: "Ravi",
-  country: "India",
-  occupation: "Web Developer",
-  hobbies: ["coding", "football", "chess", "table-tennis"],
-};
-
-const skills = [
-  "HTML",
-  "CSS",
-  "JavaScript",
-  "React",
-  "TypeScript",
-  "Svelte",
-  "Nodejs",
-];
-
-const skillColor = "navy";
-const fontWeight = "500";
-const textCase = "Capitalise";
 ---
 
-<style define:vars={{ skillColor, fontWeight, textCase }}>
-  h1 {
-    color: purple;
-    font-size: 4rem;
-  }
-  .skill {
-    color: var(--skillColor);
-    font-weight: var(--fontWeight);
-    text-transform: var(--textCase);
-  }
-</style>
-
-<MainLayout pageTitle={pageTitle}>
-  <!-- <ul>
-    <li>My name is {identity.firstName}.</li>
-    <li>
-      I live in {identity.country} and I work as a {identity.occupation}.
-    </li>
-    {
-      identity.hobbies.length >= 2 && (
-        <li>
-          My hobbies are: {identity.hobbies[0]} and {identity.hobbies[1]}
-        </li>
-      )
-    }
-  </ul>
-  <p>My skills are:</p>
-  <ul>
-    {skills.map((skill) => <li class="skill">{skill}</li>)}
-  </ul> -->
+<MainLayout title="About Me" description="Lorem ipsum dolor sit amet">
+  <p class="text-2xl text-black dark:text-white py-12">About</p>
+  <a
+    href="/resume"
+    class="flex items-center text-primary font-medium text-inherit dark:text-white underline"
+  >
+    <Arrow height={16} width={16} /> Resume
+  </a>
 </MainLayout>

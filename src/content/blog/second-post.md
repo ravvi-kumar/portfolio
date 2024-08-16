@@ -1,12 +1,15 @@
 ---
-layout: ../../layouts/BlogPostsLayout.astro
-title: zustand blog
+title: "zustand blog"
+description: "Lorem ipsum dolor sit amet"
+pubDate: "Jul 15 2022"
+heroImage: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb"
 ---
+
 <!-- # Zustand Blog -->
 
-# Zustand: A Simple and Flexible State Management Library for React
-
 ![https://images.unsplash.com/photo-1550745165-9bc0b252726f?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb](https://images.unsplash.com/photo-1550745165-9bc0b252726f?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb)
+
+# Zustand: A Simple and Flexible State Management Library for React
 
 ## Introduction
 
@@ -21,14 +24,13 @@ Zustand is a lightweight state management library for React that uses a simple a
 Zustand uses a simple API to manage state in React applications. To create a store, developers use the `createStore` function provided by Zustand. This function takes an initial state object and returns an object that contains the current state and methods for updating that state.
 
 ```jsx
-import create from 'zustand';
+import create from "zustand";
 
 const useStore = create((set) => ({
   count: 0,
   increment: () => set((state) => ({ count: state.count + 1 })),
   decrement: () => set((state) => ({ count: state.count - 1 })),
 }));
-
 ```
 
 In the example above, we are creating a store that holds a count value and two methods for updating that count value. The `set` function is provided by Zustand and is used to update the state of the store.
@@ -36,7 +38,7 @@ In the example above, we are creating a store that holds a count value and two m
 Once a store is created, it can be used in components using the `useStore` hook provided by Zustand.
 
 ```jsx
-import { useStore } from './store';
+import { useStore } from "./store";
 
 function Counter() {
   const count = useStore((state) => state.count);
@@ -51,7 +53,6 @@ function Counter() {
     </div>
   );
 }
-
 ```
 
 In the example above, we are using the `useStore` hook to access the count value and methods for updating that value in our `Counter` component.
@@ -238,3 +239,64 @@ When the user adds an item to the cart, we're using the `addItem` method to add 
 ## Conclusion
 
 Zustand is a powerful and flexible state management library for React that makes it easy to manage state in large applications. Its lightweight and functional programming approach make it a great choice for developers looking for an easy-to-use and predictable state management solution. I hope this article has given you a good introduction to Zustand and its benefits. Give it a try in your next React project!
+
+<style>
+  @import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500;600&display=swap");
+  html {
+    font-family: "Roboto Mono", monospace;
+  }
+
+  *,
+  *::before,
+  *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  body {
+    /* margin: 0 auto; */
+    height: 100%;
+    width: 100%;
+    /* max-width: 80ch; */
+    line-height: 1.5;
+    background-color: rgb(29, 29, 31);
+    color: aliceblue;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+  img,
+  picture,
+  video,
+  canvas,
+  svg {
+    display: block;
+    max-width: 100%;
+  }
+  input,
+  button,
+  textarea,
+  select {
+    font: inherit;
+  }
+  h1 {
+    font-size: 30px;
+    font-weight: 1000;
+    margin: 10px auto;
+  }
+  h2 {
+    font-size: 22px;
+    font-weight: 800;
+    margin: 6px auto;
+  }
+  h3 {
+    font-size: 18px;
+    font-weight: 600;
+  }
+  p {
+    margin: 10px 0px;
+  }
+  pre {
+    /* margin: 12px; */
+    padding: 14px;
+  }
+</style>

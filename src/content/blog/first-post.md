@@ -1,8 +1,11 @@
 ---
-layout: ../../layouts/BlogPostsLayout.astro
 title: useAsync hook
+description: "Lorem ipsum dolor sit amet"
+pubDate: "Jun 09 2023"
+heroImage: "https://images.unsplash.com/photo-1496664444929-8c75efb9546f?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=3600"
 ---
-# useAyncState hook
+
+<!-- # useAyncState hook -->
 
 ![](https://images.unsplash.com/photo-1496664444929-8c75efb9546f?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=3600)
 
@@ -17,7 +20,7 @@ When we call the setter function returned by `useState`, React doesn't immediate
 Let's take a look at an example to see how this works. In the following code, we have a counter component that increments the count state variable twice:
 
 ```jsx
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 function Counter() {
   const [count, setCount] = useState(0);
@@ -34,7 +37,6 @@ function Counter() {
     </div>
   );
 }
-
 ```
 
 If we click the "Increment Twice" button, we might expect the count to increase by two. However, due to batching, React will only perform one update to the state, resulting in the count increasing by only one.
@@ -61,10 +63,9 @@ Here's an example:
 
 ```jsx
 function increment() {
-  setCount(prevCount => prevCount + 1);
-  setCount(prevCount => prevCount + 1);
+  setCount((prevCount) => prevCount + 1);
+  setCount((prevCount) => prevCount + 1);
 }
-
 ```
 
 In this example, we're using functional updates to increment the count state variable twice. This ensures that the second update is based on the latest value of `count`, rather than the original value.
@@ -77,10 +78,9 @@ Here's an example:
 
 ```jsx
 function updateNameAndAge() {
-  setName('Alice');
+  setName("Alice");
   setAge(25);
 }
-
 ```
 
 In this example, we're updating the `name` and `age` state variables separately, ensuring that each update is processed independently.
@@ -96,7 +96,6 @@ function updateNameAndGreeting(name) {
   setName(name);
   setGreeting(`Hello, ${name}!`);
 }
-
 ```
 
 In this example, we're using functional updates to ensure that the `greeting` state variable is updated based on the latest value of `name`.
@@ -108,20 +107,20 @@ In order to achieve latest state, we synchronize state updates using `useEffect`
 Here’s an example:
 
 ```jsx
-function updateCount(by){
-	setCount((prev)=> prev + by)
-	console.log(count) // still getting old count value
+function updateCount(by) {
+  setCount((prev) => prev + by);
+  console.log(count); // still getting old count value
 }
 
-useEffect(()=>{
-	console.log(count) // here we have the latest value of count
-},[count])
+useEffect(() => {
+  console.log(count); // here we have the latest value of count
+}, [count]);
 ```
 
 we can refactor this by creating our useAyncState hook to get latest/updated state right away after updating it . so here is the code :
 
 ```jsx
-const useAsyncState =(initialState)=> {
+const useAsyncState = (initialState) => {
   const [state, setState] = useState(initialState);
 
   const asyncSetState = (value) => {
@@ -164,15 +163,15 @@ export default useAsynState;
 After refactoring ,we don’t need `useEffect` to synchronize our state updates . we can now get latest value out of setter function to use any-where we want .
 
 ```jsx
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import useAyncState from "./useAsyncState";
 
 function Counter() {
   const [count, setCount] = useAsyncState(0);
 
   async function increment() {
-    const latestCount=await setCount(count + 1);
-    console.log(latestCount) // here we will get latest value
+    const latestCount = await setCount(count + 1);
+    console.log(latestCount); // here we will get latest value
   }
 
   return (
@@ -191,3 +190,64 @@ Remember, setState return a promise of updated state, make sure you change your 
 In conclusion, the `useState` hook's setter function can batch state updates, meaning that multiple calls to the same setter function within a single render cycle may only result in one actual update to the state. This batching behavior can be useful for optimizing performance, but it's important to understand how it works to avoid confusion and ensure that our components behave as expected. By minimizing the number of state updates, we can build fast and efficient React applications that provide a great user experience.
 
 So, next time you're working with `useState` in React, remember to keep in mind the batching behavior of the setter function and use it to your advantage to build performant and efficient apps.
+
+<style>
+  @import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500;600&display=swap");
+  html {
+    font-family: "Roboto Mono", monospace;
+  }
+
+  *,
+  *::before,
+  *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  body {
+    /* margin: 0 auto; */
+    height: 100%;
+    width: 100%;
+    /* max-width: 80ch; */
+    line-height: 1.5;
+    background-color: rgb(29, 29, 31);
+    color: aliceblue;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+  img,
+  picture,
+  video,
+  canvas,
+  svg {
+    display: block;
+    max-width: 100%;
+  }
+  input,
+  button,
+  textarea,
+  select {
+    font: inherit;
+  }
+  h1 {
+    font-size: 30px;
+    font-weight: 1000;
+    margin: 10px auto;
+  }
+  h2 {
+    font-size: 22px;
+    font-weight: 800;
+    margin: 6px auto;
+  }
+  h3 {
+    font-size: 18px;
+    font-weight: 600;
+  }
+  p {
+    margin: 10px 0px;
+  }
+  pre {
+    /* margin: 12px; */
+    padding: 14px;
+  }
+</style>
