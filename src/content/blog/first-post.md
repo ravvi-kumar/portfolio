@@ -211,10 +211,22 @@ So, next time you're working with `useState` in React, remember to keep in mind 
     /* max-width: 80ch; */
     line-height: 1.5;
     background-color: rgb(29, 29, 31);
-    color: aliceblue;
     line-height: 1.5;
     -webkit-font-smoothing: antialiased;
   }
+      @media (prefers-color-scheme: dark) {
+      body {
+        /* margin: 0 auto; */
+    height: 100%;
+    width: 100%;
+    color: aliceblue;
+    /* max-width: 80ch; */
+    line-height: 1.5;
+    background-color: rgb(29, 29, 31);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+      }
+    }
   img,
   picture,
   video,
